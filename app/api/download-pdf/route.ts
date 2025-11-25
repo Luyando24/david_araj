@@ -1,90 +1,127 @@
 import { NextResponse } from 'next/server';
 import { PLAYER_INFO, TECHNICAL_STATS, PHYSICAL_STATS, CAREER_HIGHLIGHTS, TESTIMONIAL } from '@/lib/constants';
+import { jsPDF } from 'jspdf';
 
 export async function GET() {
     try {
-        // In a real implementation, you would use a PDF generation library like jsPDF or Puppeteer
-        // For now, we'll return a simple text response with player data
+        const doc = new jsPDF();
+        const lineHeight = 7;
+        let yPos = 20;
 
-        const pdfContent = `
-DAVID FAHD ARAJ - PROFESSIONAL FOOTBALL PLAYER
-===============================================
+        // Title
+        doc.setFontSize(22);
+        doc.setFont('helvetica', 'bold');
+        doc.text('DAVID FAHD ARAJ', 20, yPos);
+        yPos += 10;
 
-BASIC INFORMATION
------------------
-Name: ${PLAYER_INFO.fullName}
-Age: ${PLAYER_INFO.age}
-Height: ${PLAYER_INFO.height}
-Weight: ${PLAYER_INFO.weight}
-Nationality: ${PLAYER_INFO.nationality.join(' / ')}
-Position: ${PLAYER_INFO.position}
-Footedness: ${PLAYER_INFO.footedness}
-Location: ${PLAYER_INFO.location}
+        doc.setFontSize(12);
+        doc.setFont('helvetica', 'normal');
+        doc.text('PROFESSIONAL FOOTBALL PLAYER', 20, yPos);
+        yPos += 15;
 
-TAGLINE
--------
-${PLAYER_INFO.tagline}
+        // Basic Info
+        doc.setFontSize(14);
+        doc.setFont('helvetica', 'bold');
+        doc.text('BASIC INFORMATION', 20, yPos);
+        yPos += 8;
 
-TECHNICAL & COGNITIVE METRICS
-------------------------------
-${TECHNICAL_STATS.map(stat => `${stat.label}: ${stat.value}`).join('\n')}
+        doc.setFontSize(10);
+        doc.setFont('helvetica', 'normal');
+        doc.text(`Age: ${PLAYER_INFO.age}`, 20, yPos);
+        yPos += 6;
+        doc.text(`Position: ${PLAYER_INFO.position}`, 20, yPos);
+        yPos += 6;
+        doc.text(`Nationality: ${Array.isArray(PLAYER_INFO.nationality) ? PLAYER_INFO.nationality.join(' / ') : PLAYER_INFO.nationality}`, 20, yPos);
+        yPos += 6;
+        doc.text(`Location: ${PLAYER_INFO.location}`, 20, yPos);
+        yPos += 6;
+        doc.text(`Height: ${PLAYER_INFO.height} | Weight: ${PLAYER_INFO.weight}`, 20, yPos);
+        yPos += 12;
 
-PHYSICAL DATA
--------------
-${PHYSICAL_STATS.map(stat => `${stat.label}: ${stat.value}`).join('\n')}
+        // Tagline
+        doc.setFont('helvetica', 'italic');
+        doc.text(`"${PLAYER_INFO.tagline}"`, 20, yPos);
+        yPos += 15;
 
-CAREER HIGHLIGHTS
------------------
-${CAREER_HIGHLIGHTS.map(h => `
-${h.title} (${h.year})
-${h.description}
-${h.details.map(d => `  • ${d}`).join('\n')}
-`).join('\n')}
+        // Technical Stats
+        doc.setFontSize(14);
+        doc.setFont('helvetica', 'bold');
+        doc.text('KEY METRICS', 20, yPos);
+        yPos += 8;
 
-COACH TESTIMONIAL
------------------
-"${TESTIMONIAL.text}"
-- ${TESTIMONIAL.coach}, ${TESTIMONIAL.title}
+        doc.setFontSize(10);
+        doc.setFont('helvetica', 'normal');
+        TECHNICAL_STATS.slice(0, 6).forEach(stat => {
+            doc.text(`${stat.label}: ${stat.value}`, 20, yPos);
+            yPos += 6;
+        });
+        yPos += 10;
 
-CONTACT INFORMATION
--------------------
-Email: ${PLAYER_INFO.email}
-Phone: ${PLAYER_INFO.phone}
-Location: ${PLAYER_INFO.location}
+        // Career Highlights
+        doc.setFontSize(14);
+        doc.setFont('helvetica', 'bold');
+        doc.text('CAREER HIGHLIGHTS', 20, yPos);
+        yPos += 8;
 
-===============================================
-Generated: ${new Date().toLocaleDateString()}
-    `;
+        doc.setFontSize(10);
+        doc.setFont('helvetica', 'normal');
+        CAREER_HIGHLIGHTS.forEach(h => {
+            if (yPos > 270) {
+                doc.addPage();
+                yPos = 20;
+            }
+            doc.setFont('helvetica', 'bold');
+            doc.text(`${h.title} (${h.year})`, 20, yPos);
+            yPos += 5;
+            doc.setFont('helvetica', 'normal');
+            doc.text(h.description, 25, yPos);
+            yPos += 8;
+        });
+        yPos += 5;
 
-        // Return as downloadable text file
-        // TODO: Implement proper PDF generation with jsPDF or similar
-        return new NextResponse(pdfContent, {
+        // Testimonial
+        if (yPos > 250) {
+            doc.addPage();
+            yPos = 20;
+        }
+        doc.setFontSize(14);
+        doc.setFont('helvetica', 'bold');
+        doc.text('COACH TESTIMONIAL', 20, yPos);
+        yPos += 8;
+
+        doc.setFontSize(10);
+        doc.setFont('helvetica', 'italic');
+        const splitText = doc.splitTextToSize(`"${TESTIMONIAL.text}"`, 170);
+        doc.text(splitText, 20, yPos);
+        yPos += (splitText.length * 5) + 5;
+
+        doc.setFont('helvetica', 'bold');
+        doc.text(`- ${TESTIMONIAL.coach}, ${TESTIMONIAL.title}`, 20, yPos);
+        yPos += 15;
+
+        // Contact
+        doc.setFontSize(14);
+        doc.setFont('helvetica', 'bold');
+        doc.text('CONTACT', 20, yPos);
+        yPos += 8;
+
+        doc.setFontSize(10);
+        doc.setFont('helvetica', 'normal');
+        doc.text(`Email: ${PLAYER_INFO.email}`, 20, yPos);
+        yPos += 6;
+        doc.text(`Phone: ${PLAYER_INFO.phone}`, 20, yPos);
+
+        // Output
+        const pdfBuffer = doc.output('arraybuffer');
+
+        return new NextResponse(pdfBuffer, {
             status: 200,
             headers: {
-                'Content-Type': 'text/plain',
-                'Content-Disposition': 'attachment; filename="David_Araj_Player_Profile.txt"',
+                'Content-Type': 'application/pdf',
+                'Content-Disposition': 'attachment; filename="David_Araj_Profile.pdf"',
             },
         });
 
-        /* 
-        // Example with jsPDF (install: npm install jspdf)
-        const { jsPDF } = require('jspdf');
-        const doc = new jsPDF();
-        
-        doc.setFontSize(20);
-        doc.text('DAVID FAHD ARAJ', 20, 20);
-        doc.setFontSize(12);
-        doc.text(`Position: ${PLAYER_INFO.position}`, 20, 30);
-        // Add more content...
-        
-        const pdfBuffer = doc.output('arraybuffer');
-        return new NextResponse(pdfBuffer, {
-          headers: {
-            'Content-Type': 'application/pdf',
-            'Content-Disposition': 'attachment; filename="David_Araj_Player_Profile.pdf"',
-          },
-        });
-        */
     } catch (error) {
         console.error('Error generating PDF:', error);
         return NextResponse.json(
