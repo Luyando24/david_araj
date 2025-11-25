@@ -23,9 +23,12 @@ export default function Hero({
 
     return (
         <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
-            {/* Background Image with Overlay */}
+            {/* Background Image with Spotlight Overlay */}
             <div className="absolute inset-0 z-0">
-                <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/70 to-benfica-red/30 z-10"></div>
+                {/* Radial spotlight - dark edges, light center */}
+                <div className="absolute inset-0 bg-gradient-radial from-transparent via-black/60 to-black/95 z-10"></div>
+                {/* Subtle red accent */}
+                <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-benfica-red/20 z-10"></div>
                 <Image
                     src={backgroundImage}
                     alt="David Araj"
