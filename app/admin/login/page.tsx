@@ -2,6 +2,7 @@
 
 import { useState, FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { checkAdminPassword, setAdminSession } from '@/lib/admin-auth';
 import { Lock, AlertCircle } from 'lucide-react';
 
@@ -75,17 +76,17 @@ export default function AdminLoginPage() {
                     </form>
 
                     <div className="mt-6 text-center">
-                        <a
+                        <Link
                             href="/"
                             className="text-sm text-gray-400 hover:text-benfica-gold transition-colors"
                         >
                             ← Back to website
-                        </a>
+                        </Link>
                     </div>
                 </div>
 
                 <div className="mt-6 text-center text-sm text-gray-500">
-                    <p>Demo: Default password is "admin123"</p>
+                    <p>Demo: Default password is &ldquo;admin123&rdquo;</p>
                     <p className="mt-1">Change NEXT_PUBLIC_ADMIN_PASSWORD in .env.local</p>
                 </div>
             </div>

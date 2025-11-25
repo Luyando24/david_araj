@@ -103,7 +103,7 @@ export default function ProfilePage() {
                             {/* Player Tagline Card */}
                             <div className="bg-gradient-to-r from-benfica-red to-red-700 rounded-2xl p-8 shadow-2xl">
                                 <blockquote className="text-white text-xl sm:text-2xl font-light italic leading-relaxed">
-                                    "{PLAYER_INFO.tagline}"
+                                    &ldquo;{PLAYER_INFO.tagline}&rdquo;
                                 </blockquote>
                             </div>
                         </div>
@@ -128,10 +128,10 @@ export default function ProfilePage() {
                                     operating comfortably with both feet. His journey includes early recognition by{' '}
                                     <span className="text-white font-semibold">D.C. United at age 12</span> after completing their
                                     four-month Gifted & Talented program, and subsequent validation through selection to{' '}
-                                    <span className="text-benfica-red font-semibold">Benfica Academy's prestigious residency program</span>.
+                                    <span className="text-benfica-red font-semibold">Benfica Academy&apos;s prestigious residency program</span>.
                                 </p>
                                 <p>
-                                    David's skill set features{' '}
+                                    David&apos;s skill set features{' '}
                                     <span className="text-white font-semibold">
                                         exceptional ball control, unpredictability in the final third, and the ability to finish
                                         with both feet
