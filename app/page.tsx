@@ -122,6 +122,10 @@ export default function Home() {
                                     <video
                                         src="/gallery/videos/featured-video.mp4"
                                         controls
+                                        autoPlay
+                                        muted
+                                        loop
+                                        playsInline
                                         className="w-full h-full object-cover"
                                         poster="/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.16_cedb81ad.jpg"
                                     >
