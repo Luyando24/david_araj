@@ -220,7 +220,7 @@ export default function Home() {
                                     <h3 className="text-3xl font-display font-bold text-white mb-2">
                                         Dual
                                     </h3>
-                                    <p className="text-gray-400">American / Jordanian</p>
+                                    <p className="text-gray-400">American</p>
                                 </div>
                             </div>
 

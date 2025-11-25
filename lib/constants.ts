@@ -4,7 +4,7 @@ export const PLAYER_INFO = {
     age: 17,
     height: "5'8½\"",
     weight: '145 lbs',
-    nationality: ['American', 'Jordanian'],
+    nationality: ['American'],
     position: 'Attacking Midfielder (No.10)',
     footedness: 'Comfortably both feet',
     location: 'Washington D.C.',

@@ -119,7 +119,7 @@ export default function ProfilePage() {
                                 <p>
                                     David Fahd Araj is a{' '}
                                     <span className="text-white font-semibold">{PLAYER_INFO.age}-year-old attacking midfielder</span>{' '}
-                                    with dual American and Jordanian nationality, currently based in{' '}
+                                    with American nationality, currently based in{' '}
                                     <span className="text-white font-semibold">{PLAYER_INFO.location}</span>.
                                 </p>
                                 <p>

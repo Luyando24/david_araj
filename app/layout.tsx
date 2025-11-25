@@ -18,7 +18,7 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
     title: "David Fahd Araj - Professional Football Player Portfolio",
-    description: "17-year-old attacking midfielder with Benfica validation and MLS projection. American/Jordanian talent based in Washington D.C.",
+    description: "17-year-old attacking midfielder with Benfica validation and MLS projection. American talent based in Washington D.C.",
     keywords: ["David Araj Football", "David F. Araj No.10", "Benfica Academy", "MLS Prospect", "Attacking Midfielder"],
     authors: [{ name: "David Fahd Araj" }],
     openGraph: {
@@ -58,7 +58,7 @@ export default function RootLayout({
                             "name": "David Fahd Araj",
                             "jobTitle": "Professional Football Player",
                             "description": "Attacking Midfielder (No.10) with Benfica Academy validation",
-                            "nationality": ["American", "Jordanian"],
+                            "nationality": "American",
                             "birthPlace": "Washington D.C., USA",
                             "sport": "Football (Soccer)",
                             "position": "Attacking Midfielder",
