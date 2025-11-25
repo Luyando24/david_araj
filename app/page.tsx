@@ -120,7 +120,7 @@ export default function Home() {
                             <div className="mb-12">
                                 <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl group">
                                     <video
-                                        src="/gallery/videos/WhatsApp Video 2025-11-21 at 16.50.09_65a9caec.mp4"
+                                        src="/gallery/videos/featured-video.mp4"
                                         controls
                                         className="w-full h-full object-cover"
                                         poster="/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.16_cedb81ad.jpg"

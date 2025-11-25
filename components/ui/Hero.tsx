@@ -53,7 +53,7 @@ export default function Hero({
                     </h1>
 
                     {/* Tagline */}
-                    <p className="text-xl sm:text-2xl md:text-3xl text-benfica-red font-light max-w-3xl mx-auto animate-slide-up drop-shadow-lg">
+                    <p className="text-xl sm:text-2xl md:text-3xl text-white font-bold max-w-3xl mx-auto animate-slide-up drop-shadow-lg">
                         {tagline}
                     </p>
 
