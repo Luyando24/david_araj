@@ -7,7 +7,7 @@ import Footer from '@/components/layout/Footer';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { GALLERY_PHOTOS } from '@/lib/gallery-data';
 
-type Category = 'all' | 'action' | 'training' | 'benfica' | 'lifestyle';
+type Category = 'all' | 'action' | 'training' | 'benfica' | 'lifestyle' | 'youth';
 
 export default function PhotoGalleryPage() {
     const [selectedCategory, setSelectedCategory] = useState<Category>('all');
@@ -19,6 +19,7 @@ export default function PhotoGalleryPage() {
         { id: 'training' as Category, label: 'Training' },
         { id: 'benfica' as Category, label: 'Benfica' },
         { id: 'lifestyle' as Category, label: 'Lifestyle' },
+        { id: 'youth' as Category, label: 'Youth / Early Career' },
     ];
 
     const filteredPhotos = selectedCategory === 'all'
@@ -61,8 +62,8 @@ export default function PhotoGalleryPage() {
                                 key={cat.id}
                                 onClick={() => setSelectedCategory(cat.id)}
                                 className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${selectedCategory === cat.id
-                                        ? 'bg-benfica-red text-white shadow-lg scale-105'
-                                        : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                                    ? 'bg-benfica-red text-white shadow-lg scale-105'
+                                    : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
                                     }`}
                             >
                                 {cat.label}

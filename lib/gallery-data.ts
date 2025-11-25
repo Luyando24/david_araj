@@ -67,6 +67,18 @@ export const GALLERY_PHOTOS = [
     { id: 58, url: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.50.13_44c23497.jpg', category: 'lifestyle', title: 'Unfiltered' },
     { id: 59, url: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.50.13_a51061de.jpg', category: 'lifestyle', title: 'Life Outside' },
     { id: 60, url: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.50.13_f7fe8ac6.jpg', category: 'lifestyle', title: 'Beyond Football' },
+
+    // Youth / Early Career Photos
+    { id: 61, url: '/kidphotos/WhatsApp Image 2025-11-25 at 18.07.04_0b069b01.jpg', category: 'youth', title: 'Young Talent' },
+    { id: 62, url: '/kidphotos/WhatsApp Image 2025-11-25 at 18.07.04_283474cb.jpg', category: 'youth', title: 'Early Days' },
+    { id: 63, url: '/kidphotos/WhatsApp Image 2025-11-25 at 18.07.04_34a3a600.jpg', category: 'youth', title: 'Youth Development' },
+    { id: 64, url: '/kidphotos/WhatsApp Image 2025-11-25 at 18.07.04_a8d742b4.jpg', category: 'youth', title: 'Starting Out' },
+    { id: 65, url: '/kidphotos/WhatsApp Image 2025-11-25 at 18.07.05_302989d9.jpg', category: 'youth', title: 'Young Player' },
+    { id: 66, url: '/kidphotos/WhatsApp Image 2025-11-25 at 18.07.05_35572581.jpg', category: 'youth', title: 'Early Training' },
+    { id: 67, url: '/kidphotos/WhatsApp Image 2025-11-25 at 18.07.05_46c3f944.jpg', category: 'youth', title: 'Youth Journey' },
+    { id: 68, url: '/kidphotos/WhatsApp Image 2025-11-25 at 18.07.05_85e359de.jpg', category: 'youth', title: 'Growing Up' },
+    { id: 69, url: '/kidphotos/WhatsApp Image 2025-11-25 at 18.07.05_ea2e30f3.jpg', category: 'youth', title: 'Foundation Years' },
+    { id: 70, url: '/kidphotos/WhatsApp Image 2025-11-25 at 18.07.05_eef1777b.jpg', category: 'youth', title: 'Early Career' },
 ];
 
 // Video Gallery Data
