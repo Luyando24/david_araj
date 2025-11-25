@@ -103,6 +103,99 @@ export default function Home() {
                     </div>
                 </section>
 
+                {/* Featured Media Section */}
+                <section className="py-20 bg-gradient-to-b from-gray-900 to-black">
+                    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                        <div className="text-center mb-16">
+                            <h2 className="text-4xl sm:text-5xl font-display font-bold text-white mb-4">
+                                In Action
+                            </h2>
+                            <p className="text-gray-400 text-lg">
+                                Highlights from the pitch and training ground
+                            </p>
+                        </div>
+
+                        <div className="max-w-7xl mx-auto">
+                            {/* Featured Video */}
+                            <div className="mb-12">
+                                <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl group">
+                                    <video
+                                        src="/gallery/videos/WhatsApp Video 2025-11-21 at 16.50.09_65a9caec.mp4"
+                                        controls
+                                        className="w-full h-full object-cover"
+                                        poster="/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.16_cedb81ad.jpg"
+                                    >
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div className="absolute bottom-4 left-4 bg-black/70 px-4 py-2 rounded-lg">
+                                        <p className="text-white font-semibold">Season Highlights Reel</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Featured Photos Grid */}
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                <Link href="/photos" className="group relative aspect-square overflow-hidden rounded-xl shadow-xl">
+                                    <img
+                                        src="/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.22_a4a3c45a.jpg"
+                                        alt="Match Action"
+                                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                        <div className="absolute bottom-4 left-4 text-white">
+                                            <p className="font-semibold text-lg">Match Performance</p>
+                                            <p className="text-sm text-gray-300">View Gallery →</p>
+                                        </div>
+                                    </div>
+                                </Link>
+
+                                <Link href="/photos" className="group relative aspect-square overflow-hidden rounded-xl shadow-xl">
+                                    <img
+                                        src="/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.19_747e4add.jpg"
+                                        alt="In Action"
+                                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                        <div className="absolute bottom-4 left-4 text-white">
+                                            <p className="font-semibold text-lg">Game Time</p>
+                                            <p className="text-sm text-gray-300">View Gallery →</p>
+                                        </div>
+                                    </div>
+                                </Link>
+
+                                <Link href="/photos" className="group relative aspect-square overflow-hidden rounded-xl shadow-xl">
+                                    <img
+                                        src="/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.17_2fdb5d51.jpg"
+                                        alt="Benfica Experience"
+                                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                        <div className="absolute bottom-4 left-4 text-white">
+                                            <p className="font-semibold text-lg">Benfica Academy</p>
+                                            <p className="text-sm text-gray-300">View Gallery →</p>
+                                        </div>
+                                    </div>
+                                </Link>
+                            </div>
+
+                            <div className="text-center mt-12">
+                                <Link
+                                    href="/videos"
+                                    className="inline-block text-benfica-gold hover:text-benfica-red font-semibold transition-colors mr-6"
+                                >
+                                    Watch More Videos →
+                                </Link>
+                                <Link
+                                    href="/photos"
+                                    className="inline-block text-benfica-gold hover:text-benfica-red font-semibold transition-colors"
+                                >
+                                    View Photo Gallery →
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
                 {/* About Preview */}
                 <section className="py-20 bg-black">
                     <div className="container mx-auto px-4 sm:px-6 lg:px-8">
