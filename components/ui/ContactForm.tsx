@@ -123,7 +123,7 @@ export default function ContactForm() {
             {status === 'success' && (
                 <div className="flex items-center space-x-2 text-green-400 bg-green-400/10 px-4 py-3 rounded-lg">
                     <CheckCircle className="w-5 h-5" />
-                    <span>Message sent successfully! We'll get back to you soon.</span>
+                    <span>Message sent successfully! We&apos;ll get back to you soon.</span>
                 </div>
             )}
 

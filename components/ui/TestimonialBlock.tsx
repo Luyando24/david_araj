@@ -25,7 +25,7 @@ export default function TestimonialBlock({
                 </div>
 
                 <blockquote className="text-white text-lg sm:text-xl leading-relaxed mb-8 italic">
-                    "{text}"
+                    &ldquo;{text}&rdquo;
                 </blockquote>
 
                 {/* Coach Info */}

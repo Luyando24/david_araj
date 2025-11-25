@@ -102,7 +102,7 @@ export default function TestimonialsPage() {
                     <div className="max-w-3xl mx-auto mt-16 text-center animate-slide-up">
                         <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 shadow-2xl">
                             <p className="text-gray-300 text-lg mb-6">
-                                Interested in learning more about David's playing style and performance metrics?
+                                Interested in learning more about David&apos;s playing style and performance metrics?
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                 <a
