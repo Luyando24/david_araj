@@ -6,7 +6,7 @@ import Footer from '@/components/layout/Footer';
 import { GALLERY_VIDEOS } from '@/lib/gallery-data';
 import { Play } from 'lucide-react';
 
-type Category = 'all' | 'highlights' | 'training' | 'drills' | 'tactical';
+type Category = 'all' | 'highlights' | 'training' | 'drills' | 'tactical' | 'goals';
 
 export default function VideoGalleryPage() {
     const [selectedCategory, setSelectedCategory] = useState<Category>('all');
@@ -15,6 +15,7 @@ export default function VideoGalleryPage() {
     const categories = [
         { id: 'all' as Category, label: 'All Videos' },
         { id: 'highlights' as Category, label: 'Match Highlights' },
+        { id: 'goals' as Category, label: 'Goals' },
         { id: 'training' as Category, label: 'Training Sessions' },
         { id: 'drills' as Category, label: 'Skills & Drills' },
         { id: 'tactical' as Category, label: 'Tactical Play' },
@@ -45,8 +46,8 @@ export default function VideoGalleryPage() {
                                 key={cat.id}
                                 onClick={() => setSelectedCategory(cat.id)}
                                 className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${selectedCategory === cat.id
-                                        ? 'bg-benfica-red text-white shadow-lg scale-105'
-                                        : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                                    ? 'bg-benfica-red text-white shadow-lg scale-105'
+                                    : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
                                     }`}
                             >
                                 {cat.label}
@@ -77,7 +78,15 @@ export default function VideoGalleryPage() {
                                             onClick={() => setPlayingVideo(video.id)}
                                             className="absolute inset-0 flex items-center justify-center group"
                                         >
-                                            <div className="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-all"></div>
+                                            {/* Thumbnail Image */}
+                                            <img
+                                                src={video.thumbnail}
+                                                alt={video.title}
+                                                className="absolute inset-0 w-full h-full object-cover"
+                                            />
+                                            {/* Dark Overlay */}
+                                            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all"></div>
+                                            {/* Play Button */}
                                             <div className="relative z-10 w-20 h-20 bg-benfica-red rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-2xl">
                                                 <Play className="w-10 h-10 text-white ml-1" fill="white" />
                                             </div>

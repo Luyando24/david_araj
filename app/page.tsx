@@ -17,7 +17,7 @@ export default function Home() {
                     title="DAVID ARAJ"
                     subtitle={PLAYER_INFO.position}
                     tagline={PLAYER_INFO.tagline}
-                    backgroundImage="/images/hero-bg.jpg"
+                    backgroundImage="/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.22_a4a3c45a.jpg"
                 />
 
                 {/* Quick Stats Section */}
@@ -132,7 +132,7 @@ export default function Home() {
                                         Your browser does not support the video tag.
                                     </video>
                                     <div className="absolute bottom-4 left-4 bg-black/70 px-4 py-2 rounded-lg">
-                                        <p className="text-white font-semibold">Season Highlights Reel</p>
+                                        <p className="text-white font-semibold">Featured Highlights</p>
                                     </div>
                                 </div>
                             </div>

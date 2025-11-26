@@ -1,6 +1,7 @@
 // Photo Gallery Data
+// Reorganized with current Benfica content first, then youth photos last
 export const GALLERY_PHOTOS = [
-    // Action Shots (in-game photos)
+    // Current Action Shots (in-game photos at Benfica)
     { id: 1, url: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.15_08e154fe.jpg', category: 'action', title: 'Match Action' },
     { id: 2, url: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.15_65cf596a.jpg', category: 'action', title: 'In-Game Performance' },
     { id: 3, url: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.16_98d494cb.jpg', category: 'action', title: 'Field Action' },
@@ -12,7 +13,7 @@ export const GALLERY_PHOTOS = [
     { id: 9, url: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.19_747e4add.jpg', category: 'action', title: 'Game Time' },
     { id: 10, url: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.20_26f812da.jpg', category: 'action', title: 'Match Action' },
 
-    // Training Photos
+    // Current Training Photos at Benfica
     { id: 11, url: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.15_cba093b3.jpg', category: 'training', title: 'Training Session' },
     { id: 12, url: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.16_0f7cac57.jpg', category: 'training', title: 'Practice' },
     { id: 13, url: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.16_e9e96be3.jpg', category: 'training', title: 'Drills' },
@@ -24,7 +25,7 @@ export const GALLERY_PHOTOS = [
     { id: 19, url: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.19_56dfb197.jpg', category: 'training', title: 'Team Training' },
     { id: 20, url: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.20_3550a95f.jpg', category: 'training', title: 'Conditioning' },
 
-    // Benfica Photos
+    // Benfica Academy Photos
     { id: 21, url: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.16_f5821b7e.jpg', category: 'benfica', title: 'Benfica Academy' },
     { id: 22, url: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.17_2fdb5d51.jpg', category: 'benfica', title: 'At Benfica' },
     { id: 23, url: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.17_d99ad26e.jpg', category: 'benfica', title: 'Benfica Training' },
@@ -38,7 +39,7 @@ export const GALLERY_PHOTOS = [
     { id: 31, url: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.50.12_09169000.jpg', category: 'benfica', title: 'Academy Days' },
     { id: 32, url: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.50.12_a88ad24a.jpg', category: 'benfica', title: 'Benfica Family' },
 
-    // Lifestyle / Portrait Photos
+    // Current Lifestyle / Portrait Photos
     { id: 33, url: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.18_f97c9bb1.jpg', category: 'lifestyle', title: 'Portrait' },
     { id: 34, url: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.19_ab299c64.jpg', category: 'lifestyle', title: 'Off the Field' },
     { id: 35, url: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.20_ce256dd0.jpg', category: 'lifestyle', title: 'Lifestyle' },
@@ -68,7 +69,7 @@ export const GALLERY_PHOTOS = [
     { id: 59, url: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.50.13_a51061de.jpg', category: 'lifestyle', title: 'Life Outside' },
     { id: 60, url: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.50.13_f7fe8ac6.jpg', category: 'lifestyle', title: 'Beyond Football' },
 
-    // Youth / Early Career Photos
+    // Youth / Early Career Photos (younger age - displayed last)
     { id: 61, url: '/kidphotos/WhatsApp Image 2025-11-25 at 18.07.04_0b069b01.jpg', category: 'youth', title: 'Young Talent' },
     { id: 62, url: '/kidphotos/WhatsApp Image 2025-11-25 at 18.07.04_283474cb.jpg', category: 'youth', title: 'Early Days' },
     { id: 63, url: '/kidphotos/WhatsApp Image 2025-11-25 at 18.07.04_34a3a600.jpg', category: 'youth', title: 'Youth Development' },
@@ -84,25 +85,38 @@ export const GALLERY_PHOTOS = [
 // Video Gallery Data
 export const GALLERY_VIDEOS = [
     // Highlights
-    { id: 1, url: '/gallery/videos/WhatsApp Video 2025-11-21 at 16.50.09_65a9caec.mp4', category: 'highlights', title: 'Season Highlights', description: 'Best moments from the season' },
-    { id: 2, url: '/gallery/videos/WhatsApp Video 2025-11-21 at 16.50.11_8c3a9d97.mp4', category: 'highlights', title: 'Match Highlights', description: 'Key plays and goals' },
-    { id: 3, url: '/gallery/videos/WhatsApp Video 2025-11-21 at 16.50.11_f64a38cd.mp4', category: 'highlights', title: 'Game Highlights', description: 'Top performances' },
-    { id: 4, url: '/gallery/videos/WhatsApp Video 2025-11-21 at 16.50.12_21948e55.mp4', category: 'highlights', title: 'Best Moments', description: 'Showcase reel' },
+    { id: 1, url: '/gallery/videos/WhatsApp Video 2025-11-21 at 16.50.09_65a9caec.mp4', category: 'highlights', title: 'Video Highlight 1', description: 'Performance showcase', thumbnail: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.15_08e154fe.jpg' },
+    { id: 2, url: '/gallery/videos/WhatsApp Video 2025-11-21 at 16.50.11_8c3a9d97.mp4', category: 'highlights', title: 'Video Highlight 2', description: 'Action footage', thumbnail: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.16_98d494cb.jpg' },
+    { id: 3, url: '/gallery/videos/WhatsApp Video 2025-11-21 at 16.50.11_f64a38cd.mp4', category: 'highlights', title: 'Video Highlight 3', description: 'Match footage', thumbnail: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.17_55ddc1bb.jpg' },
+    { id: 4, url: '/gallery/videos/WhatsApp Video 2025-11-21 at 16.50.12_21948e55.mp4', category: 'highlights', title: 'Video Highlight 4', description: 'Game moments', thumbnail: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.18_0086a530.jpg' },
 
     // Training Videos
-    { id: 5, url: '/gallery/videos/WhatsApp Video 2025-11-21 at 16.50.09_067e16c7.mp4', category: 'training', title: 'Training Session', description: 'Daily practice routine' },
-    { id: 6, url: '/gallery/videos/WhatsApp Video 2025-11-21 at 16.50.09_59f498b8.mp4', category: 'training', title: 'Skills Practice', description: 'Technical work' },
-    { id: 7, url: '/gallery/videos/WhatsApp Video 2025-11-21 at 16.50.10_c68d2717.mp4', category: 'training', title: 'Team Training', description: 'Group drills' },
-    { id: 8, url: '/gallery/videos/WhatsApp Video 2025-11-21 at 16.50.11_2a9969ac.mp4', category: 'training', title: 'Conditioning', description: 'Fitness work' },
+    { id: 5, url: '/gallery/videos/WhatsApp Video 2025-11-21 at 16.50.09_067e16c7.mp4', category: 'training', title: 'Training Footage 1', description: 'Practice session', thumbnail: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.15_cba093b3.jpg' },
+    { id: 6, url: '/gallery/videos/WhatsApp Video 2025-11-21 at 16.50.09_59f498b8.mp4', category: 'training', title: 'Training Footage 2', description: 'Skills showcase', thumbnail: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.16_0f7cac57.jpg' },
+    { id: 7, url: '/gallery/videos/WhatsApp Video 2025-11-21 at 16.50.10_c68d2717.mp4', category: 'training', title: 'Training Footage 3', description: 'Training clip', thumbnail: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.16_e9e96be3.jpg' },
+    { id: 8, url: '/gallery/videos/WhatsApp Video 2025-11-21 at 16.50.11_2a9969ac.mp4', category: 'training', title: 'Training Footage 4', description: 'Practice clips', thumbnail: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.16_f0f702bd.jpg' },
 
     // Drills & Skills
-    { id: 9, url: '/gallery/videos/WhatsApp Video 2025-11-21 at 16.49.24_3fdcfb76.mp4', category: 'drills', title: 'Technical Drills', description: 'Ball control exercises' },
-    { id: 10, url: '/gallery/videos/WhatsApp Video 2025-11-21 at 16.50.09_fff2b2b2.mp4', category: 'drills', title: 'Skill Development', description: 'Individual training' },
-    { id: 11, url: '/gallery/videos/WhatsApp Video 2025-11-21 at 16.50.10_04148641.mp4', category: 'drills', title: 'Passing Drills', description: 'Precision practice' },
-    { id: 12, url: '/gallery/videos/WhatsApp Video 2025-11-21 at 16.50.10_d8ec8309.mp4', category: 'drills', title: 'Dribbling', description: 'Close control work' },
-    { id: 13, url: '/gallery/videos/WhatsApp Video 2025-11-21 at 16.50.11_cf63a05c.mp4', category: 'drills', title: 'Quick Feet', description: 'Agility training' },
+    { id: 9, url: '/gallery/videos/WhatsApp Video 2025-11-21 at 16.49.24_3fdcfb76.mp4', category: 'drills', title: 'Skills Video 1', description: 'Ball work', thumbnail: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.17_1b0b0d25.jpg' },
+    { id: 10, url: '/gallery/videos/WhatsApp Video 2025-11-21 at 16.50.09_fff2b2b2.mp4', category: 'drills', title: 'Skills Video 2', description: 'Technical skills', thumbnail: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.17_4bd32f6c.jpg' },
+    { id: 11, url: '/gallery/videos/WhatsApp Video 2025-11-21 at 16.50.10_04148641.mp4', category: 'drills', title: 'Skills Video 3', description: 'Training drills', thumbnail: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.18_765054a9.jpg' },
+    { id: 12, url: '/gallery/videos/WhatsApp Video 2025-11-21 at 16.50.10_d8ec8309.mp4', category: 'drills', title: 'Skills Video 4', description: 'Skill development', thumbnail: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.18_a99a0fb9.jpg' },
+    { id: 13, url: '/gallery/videos/WhatsApp Video 2025-11-21 at 16.50.11_cf63a05c.mp4', category: 'drills', title: 'Skills Video 5', description: 'Individual work', thumbnail: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.19_56dfb197.jpg' },
 
     // Tactical Videos
-    { id: 14, url: '/gallery/videos/WhatsApp Video 2025-11-21 at 16.50.11_03dc67ba.mp4', category: 'tactical', title: 'Position Play', description: 'Tactical awareness' },
-    { id: 15, url: '/gallery/videos/WhatsApp Video 2025-11-21 at 16.50.12_761def97.mp4', category: 'tactical', title: 'Game Intelligence', description: 'Decision making' },
+    { id: 14, url: '/gallery/videos/WhatsApp Video 2025-11-21 at 16.50.11_03dc67ba.mp4', category: 'tactical', title: 'Gameplay Footage 1', description: 'In-game action', thumbnail: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.19_1ae475b6.jpg' },
+    { id: 15, url: '/gallery/videos/WhatsApp Video 2025-11-21 at 16.50.12_761def97.mp4', category: 'tactical', title: 'Gameplay Footage 2', description: 'Match moments', thumbnail: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.19_747e4add.jpg' },
+
+    // Goals
+    { id: 16, url: '/Goals/WhatsApp Video 2025-11-26 at 02.47.10_a6879f7c.mp4', category: 'goals', title: 'Goal 1', description: 'Goal scored', thumbnail: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.16_cedb81ad.jpg' },
+    { id: 17, url: '/Goals/WhatsApp Video 2025-11-26 at 02.47.11_00d2dae6.mp4', category: 'goals', title: 'Goal 2', description: 'Goal scored', thumbnail: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.18_a83e15e0.jpg' },
+    { id: 18, url: '/Goals/WhatsApp Video 2025-11-26 at 02.47.11_14e84caf.mp4', category: 'goals', title: 'Goal 3', description: 'Goal scored', thumbnail: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.20_26f812da.jpg' },
+    { id: 19, url: '/Goals/WhatsApp Video 2025-11-26 at 02.47.11_3abeb785.mp4', category: 'goals', title: 'Goal 4', description: 'Goal scored', thumbnail: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.15_65cf596a.jpg' },
+    { id: 20, url: '/Goals/WhatsApp Video 2025-11-26 at 02.47.11_54bb6254.mp4', category: 'goals', title: 'Goal 5', description: 'Goal scored', thumbnail: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.20_3550a95f.jpg' },
+    { id: 21, url: '/Goals/WhatsApp Video 2025-11-26 at 02.47.11_967365b5.mp4', category: 'goals', title: 'Goal 6', description: 'Goal scored', thumbnail: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.16_f5821b7e.jpg' },
+    { id: 22, url: '/Goals/WhatsApp Video 2025-11-26 at 02.47.11_a706a82f.mp4', category: 'goals', title: 'Goal 7', description: 'Goal scored', thumbnail: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.17_2fdb5d51.jpg' },
+    { id: 23, url: '/Goals/WhatsApp Video 2025-11-26 at 02.47.11_b0994e72.mp4', category: 'goals', title: 'Goal 8', description: 'Goal scored', thumbnail: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.17_d99ad26e.jpg' },
+    { id: 24, url: '/Goals/WhatsApp Video 2025-11-26 at 02.47.12_6135b5db.mp4', category: 'goals', title: 'Goal 9', description: 'Goal scored', thumbnail: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.18_bf984fd5.jpg' },
+    { id: 25, url: '/Goals/WhatsApp Video 2025-11-26 at 02.47.12_72227916.mp4', category: 'goals', title: 'Goal 10', description: 'Goal scored', thumbnail: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.18_c97c172c.jpg' },
+    { id: 26, url: '/Goals/WhatsApp Video 2025-11-26 at 02.47.12_a8cfa1c3.mp4', category: 'goals', title: 'Goal 11', description: 'Goal scored', thumbnail: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.19_2c2d5844.jpg' },
 ];

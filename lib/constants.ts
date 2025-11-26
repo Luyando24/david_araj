@@ -1,6 +1,6 @@
 // Player Basic Information
 export const PLAYER_INFO = {
-    fullName: 'David Fahd Araj',
+    fullName: 'David Fahed Araj',
     age: 17,
     height: "5'8½\"",
     weight: '145 lbs',
@@ -10,10 +10,10 @@ export const PLAYER_INFO = {
     location: 'Washington D.C.',
     tagline: 'Creative No.10 with European Validation & MLS Projection',
     email: 'contact@davidaraj.com', // Update with actual email
-    phone: '+1-xxx-xxx-xxxx', // Update with actual phone
-    whatsapp: '+1xxxxxxxxxx', // Update with actual WhatsApp
-    instagram: 'https://instagram.com/davidaraj', // Update
-    youtube: 'https://youtube.com/@davidaraj', // Update
+    phone: '+12404802844',
+    whatsapp: '+12404802844',
+    instagram: 'https://www.instagram.com/david.araj?utm_source=qr&igsh=MXV4M2FqM3U0cDNkag==',
+    youtube: 'https://youtube.com/@egyptmd?si=pmKPVH0gqr68KZ--',
 };
 
 // Character & Academic Data
