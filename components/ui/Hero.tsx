@@ -64,7 +64,7 @@ export default function Hero({
                             variant="primary"
                             Icon={Download}
                         >
-                            Download Player PDF
+                            Download Player Profile
                         </CTAButton>
 
                         <CTAButton
