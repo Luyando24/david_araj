@@ -17,7 +17,7 @@ export default function Home() {
                     title="DAVID ARAJ"
                     subtitle={PLAYER_INFO.position}
                     tagline={PLAYER_INFO.tagline}
-                    backgroundImage="/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.22_a4a3c45a.jpg"
+                    backgroundImage="/images/herobg.jpg"
                 />
 
                 {/* Quick Stats Section */}
