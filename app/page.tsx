@@ -155,7 +155,7 @@ export default function Home() {
 
                                 <Link href="/photos" className="group relative aspect-square overflow-hidden rounded-xl shadow-xl">
                                     <img
-                                        src="/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.19_747e4add.jpg"
+                                        src="/images/fe.jpg"
                                         alt="In Action"
                                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                                     />
