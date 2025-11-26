@@ -17,7 +17,7 @@ export default function Home() {
                     title="DAVID ARAJ"
                     subtitle={PLAYER_INFO.position}
                     tagline={PLAYER_INFO.tagline}
-                    backgroundImage="/images/herobg.jpg"
+                    backgroundImage="/images/newherobg.jpg"
                 />
 
                 {/* Quick Stats Section */}
