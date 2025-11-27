@@ -84,11 +84,13 @@ export default function VideoGalleryPage() {
                                             onClick={() => setPlayingVideo(video.id)}
                                             className="absolute inset-0 flex items-center justify-center group"
                                         >
-                                            {/* Thumbnail Image */}
-                                            <img
-                                                src={video.thumbnail}
-                                                alt={video.title}
+                                            {/* Video Preview - Shows first frame */}
+                                            <video
+                                                src={video.url}
                                                 className="absolute inset-0 w-full h-full object-cover"
+                                                preload="metadata"
+                                                muted
+                                                playsInline
                                             />
                                             {/* Dark Overlay */}
                                             <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all"></div>
