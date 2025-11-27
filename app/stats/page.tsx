@@ -1,6 +1,7 @@
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import StatCard from '@/components/ui/StatCard';
+import Breadcrumb from '@/components/ui/Breadcrumb';
 import { TECHNICAL_STATS, PHYSICAL_STATS } from '@/lib/constants';
 import { Activity, Zap, TrendingUp } from 'lucide-react';
 
@@ -11,6 +12,11 @@ export default function StatsPage() {
 
             <main className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black pt-32 pb-20">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                    {/* Breadcrumb */}
+                    <div className="mb-8 animate-fade-in">
+                        <Breadcrumb />
+                    </div>
+
                     {/* Page Header */}
                     <div className="text-center mb-16 animate-fade-in">
                         <h1 className="text-5xl sm:text-6xl md:text-7xl font-display font-bold text-white mb-6">

@@ -1,6 +1,7 @@
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import TestimonialBlock from '@/components/ui/TestimonialBlock';
+import Breadcrumb from '@/components/ui/Breadcrumb';
 import { TESTIMONIAL } from '@/lib/constants';
 import { Quote, Award } from 'lucide-react';
 
@@ -11,6 +12,11 @@ export default function TestimonialsPage() {
 
             <main className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black pt-32 pb-20">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                    {/* Breadcrumb */}
+                    <div className="mb-8 animate-fade-in">
+                        <Breadcrumb />
+                    </div>
+
                     {/* Page Header */}
                     <div className="text-center mb-16 animate-fade-in">
                         <Quote className="w-16 h-16 text-benfica-red mx-auto mb-6" />
