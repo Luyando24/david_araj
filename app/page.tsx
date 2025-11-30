@@ -120,7 +120,7 @@ export default function Home() {
                             <div className="mb-12">
                                 <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl group">
                                     <video
-                                        src="/gallery/videos/featured-video.mp4"
+                                        src="/Videos/featuredvideo.mp4"
                                         controls
                                         autoPlay
                                         muted
