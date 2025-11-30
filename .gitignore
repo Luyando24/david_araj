@@ -32,3 +32,13 @@ yarn-error.log*
 # TypeScript
 *.tsbuildinfo
 next-env.d.ts
+
+# Large media files (videos)
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+/Videos/
+/Goals/
+/gallery/videos/
