@@ -276,7 +276,7 @@ export async function GET() {
 
             doc.setFontSize(8);
             doc.setTextColor(150, 150, 150);
-            doc.text(`David Fahd Araj - Professional Portfolio`, 20, 285);
+            doc.text(`David Fahed Araj - Professional Portfolio`, 20, 285);
             doc.text(`Page ${i} of ${pageCount}`, 190, 285, { align: 'right' });
         }
 

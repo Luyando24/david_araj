@@ -17,19 +17,19 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-    title: "David Fahd Araj - Professional Football Player Portfolio",
+    title: "David Fahed Araj - Professional Football Player Portfolio",
     description: "17-year-old attacking midfielder with Benfica validation and MLS projection. American talent based in Washington D.C.",
     keywords: ["David Araj Football", "David F. Araj No.10", "Benfica Academy", "MLS Prospect", "Attacking Midfielder"],
-    authors: [{ name: "David Fahd Araj" }],
+    authors: [{ name: "David Fahed Araj" }],
     openGraph: {
-        title: "David Fahd Araj - Professional Football Player",
+        title: "David Fahed Araj - Professional Football Player",
         description: "Creative No.10 with European Validation & MLS Projection",
         type: "profile",
         locale: "en_US",
     },
     twitter: {
         card: "summary_large_image",
-        title: "David Fahd Araj - Professional Football Player",
+        title: "David Fahed Araj - Professional Football Player",
         description: "Creative No.10 with European Validation & MLS Projection",
     },
     robots: {
@@ -55,7 +55,7 @@ export default function RootLayout({
                         __html: JSON.stringify({
                             "@context": "https://schema.org",
                             "@type": "Person",
-                            "name": "David Fahd Araj",
+                            "name": "David Fahed Araj",
                             "jobTitle": "Professional Football Player",
                             "description": "Attacking Midfielder (No.10) with Benfica Academy validation",
                             "nationality": "American",

@@ -91,7 +91,7 @@ export default function Footer() {
                 {/* Bottom Bar */}
                 <div className="border-t border-gray-800 mt-8 pt-8 text-center">
                     <p className="text-gray-400 text-sm">
-                        © {currentYear} David Fahd Araj. All rights reserved.
+                        © {currentYear} David Fahed Araj. All rights reserved.
                     </p>
                 </div>
             </div>

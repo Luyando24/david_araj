@@ -123,7 +123,7 @@ export default function ProfilePage() {
                             </h2>
                             <div className="text-gray-300 text-lg leading-relaxed space-y-4">
                                 <p>
-                                    David Fahd Araj is a{' '}
+                                    David Fahed Araj is a{' '}
                                     <span className="text-white font-semibold">{PLAYER_INFO.age}-year-old attacking midfielder</span>{' '}
                                     with American nationality, currently based in{' '}
                                     <span className="text-white font-semibold">{PLAYER_INFO.location}</span>.
