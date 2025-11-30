@@ -86,17 +86,17 @@ export const GALLERY_PHOTOS = [
 export const GALLERY_VIDEOS = [
     // Featured Videos - In Priority Order
     // Video #1
-    { id: 22, url: '/Goals/WhatsApp Video 2025-11-26 at 02.47.11_a706a82f.mp4', category: 'goals', title: 'Video #1 Dribbling to score a goal', description: 'Video #1 Dribbling to score a goal', thumbnail: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.17_2fdb5d51.jpg' },
+    { id: 22, url: '/Goals/WhatsApp Video 2025-11-26 at 02.47.11_a706a82f.mp4', category: 'goals', title: 'Dribbling to score a goal', description: 'Dribbling to score a goal', thumbnail: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.17_2fdb5d51.jpg' },
     // Video #2
-    { id: 21, url: '/Goals/WhatsApp Video 2025-11-26 at 02.47.11_967365b5.mp4', category: 'goals', title: 'Video # 2 Long pass, reading the game', description: 'Video # 2 Long pass, reading the game', thumbnail: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.16_f5821b7e.jpg' },
+    { id: 21, url: '/Goals/WhatsApp Video 2025-11-26 at 02.47.11_967365b5.mp4', category: 'goals', title: 'Long pass, reading the game', description: 'Long pass, reading the game', thumbnail: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.16_f5821b7e.jpg' },
     // Video #3
-    { id: 20, url: '/Goals/WhatsApp Video 2025-11-26 at 02.47.11_54bb6254.mp4', category: 'goals', title: 'Video # 3  Great positioning, Goal scoring', description: 'Video # 3  Great positioning, Goal scoring', thumbnail: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.20_3550a95f.jpg' },
+    { id: 20, url: '/Goals/WhatsApp Video 2025-11-26 at 02.47.11_54bb6254.mp4', category: 'goals', title: 'Great positioning, Goal scoring', description: 'Great positioning, Goal scoring', thumbnail: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.20_3550a95f.jpg' },
     // Video #4
     { id: 19, url: '/Goals/WhatsApp Video 2025-11-26 at 02.47.11_3abeb785.mp4', category: 'goals', title: 'Controlling skills & shooting from distance', description: 'Controlling skills & shooting from distance', thumbnail: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.15_65cf596a.jpg' },
     // Video #5
     { id: 18, url: '/Goals/WhatsApp Video 2025-11-26 at 02.47.11_14e84caf.mp4', category: 'goals', title: 'Dribbling.. Goal scoring', description: 'Dribbling.. Goal scoring', thumbnail: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.20_26f812da.jpg' },
     // Video #6
-    { id: 17, url: '/Goals/WhatsApp Video 2025-11-26 at 02.47.11_00d2dae6.mp4', category: 'goals', title: '#6 stealing the ball.. Goal scorer', description: '#6 stealing the ball.. Goal scorer', thumbnail: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.18_a83e15e0.jpg' },
+    { id: 17, url: '/Goals/WhatsApp Video 2025-11-26 at 02.47.11_00d2dae6.mp4', category: 'goals', title: 'Stealing the ball.. Goal scorer', description: 'Stealing the ball.. Goal scorer', thumbnail: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.18_a83e15e0.jpg' },
     // Video #7
     { id: 23, url: '/Goals/WhatsApp Video 2025-11-26 at 02.47.11_b0994e72.mp4', category: 'goals', title: 'Shooting under pressure, from outside the box', description: 'Shooting under pressure, from outside the box', thumbnail: '/gallery/photos/WhatsApp Image 2025-11-21 at 16.49.17_d99ad26e.jpg' },
 
