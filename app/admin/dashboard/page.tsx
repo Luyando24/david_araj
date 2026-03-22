@@ -1,17 +1,51 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import ProtectedRoute from '@/components/admin/ProtectedRoute';
 import AdminSidebar from '@/components/admin/Sidebar';
-import { Users, Mail, Image as ImageIcon, Video, TrendingUp } from 'lucide-react';
+import { Users, Mail, Image as ImageIcon, Video, TrendingUp, Shield, Loader2 } from 'lucide-react';
+import { supabase } from '@/lib/supabase';
 import Link from 'next/link';
 
 export default function AdminDashboardPage() {
-    const stats = [
-        { label: 'Photos', value: '60', icon: ImageIcon, href: '/admin/gallery/photos', color: 'bg-blue-500' },
-        { label: 'Videos', value: '15', icon: Video, href: '/admin/gallery/videos', color: 'bg-purple-500' },
-        { label: 'Contact Submissions', value: '0', icon: Mail, href: '/admin/contacts', color: 'bg-green-500' },
-        { label: 'Page Views', value: '-', icon: TrendingUp, href: '#', color: 'bg-orange-500' },
-    ];
+    const [stats, setStats] = useState([
+        { label: 'Photos', value: '...', icon: ImageIcon, href: '/admin/gallery/photos', color: 'bg-blue-500' },
+        { label: 'Videos', value: '...', icon: Video, href: '/admin/gallery/videos', color: 'bg-purple-500' },
+        { label: 'Contact Submissions', value: '...', icon: Mail, href: '/admin/contacts', color: 'bg-green-500' },
+        { label: 'Authorized Admins', value: '...', icon: Shield, href: '/admin/admins', color: 'bg-benfica-red' },
+    ]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        fetchStats();
+    }, []);
+
+    async function fetchStats() {
+        try {
+            const [
+                { count: photoCount },
+                { count: videoCount },
+                { count: contactCount },
+                { count: adminCount }
+            ] = await Promise.all([
+                supabase.from('gallery_photos').select('*', { count: 'exact', head: true }),
+                supabase.from('gallery_videos').select('*', { count: 'exact', head: true }),
+                supabase.from('contact_submissions').select('*', { count: 'exact', head: true }),
+                supabase.from('admins').select('*', { count: 'exact', head: true }),
+            ]);
+
+            setStats([
+                { label: 'Photos', value: (photoCount || 0).toString(), icon: ImageIcon, href: '/admin/gallery/photos', color: 'bg-blue-500' },
+                { label: 'Videos', value: (videoCount || 0).toString(), icon: Video, href: '/admin/gallery/videos', color: 'bg-purple-500' },
+                { label: 'Contact Submissions', value: (contactCount || 0).toString(), icon: Mail, href: '/admin/contacts', color: 'bg-green-500' },
+                { label: 'Authorized Admins', value: (adminCount || 0).toString(), icon: Shield, href: '/admin/admins', color: 'bg-benfica-red' },
+            ]);
+        } catch (error) {
+            console.error('Error fetching dashboard stats:', error);
+        } finally {
+            setLoading(false);
+        }
+    }
 
     return (
         <ProtectedRoute>
@@ -20,9 +54,12 @@ export default function AdminDashboardPage() {
 
                 <main className="flex-1 p-8">
                     <div className="max-w-7xl mx-auto">
-                        <div className="mb-8">
-                            <h1 className="text-4xl font-display font-bold text-white mb-2">Dashboard</h1>
-                            <p className="text-gray-400">Welcome to the admin panel</p>
+                        <div className="mb-8 flex justify-between items-center">
+                            <div>
+                                <h1 className="text-4xl font-display font-bold text-white mb-2">Dashboard</h1>
+                                <p className="text-gray-400">Welcome to your production CMS</p>
+                            </div>
+                            {loading && <Loader2 className="w-6 h-6 text-benfica-red animate-spin" />}
                         </div>
 
                         {/* Stats Grid */}
@@ -33,8 +70,11 @@ export default function AdminDashboardPage() {
                                     <Link
                                         key={stat.label}
                                         href={stat.href}
-                                        className="bg-gray-900 rounded-xl p-6 border border-gray-800 hover:border-benfica-red transition-all duration-200 group"
+                                        className="bg-gray-900 rounded-xl p-6 border border-gray-800 hover:border-benfica-red transition-all duration-200 group relative overflow-hidden"
                                     >
+                                        <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                                            <Icon className="w-16 h-16 text-white" />
+                                        </div>
                                         <div className="flex items-center justify-between mb-4">
                                             <div className={`w-12 h-12 rounded-lg ${stat.color} flex items-center justify-center`}>
                                                 <Icon className="w-6 h-6 text-white" />
@@ -51,39 +91,37 @@ export default function AdminDashboardPage() {
 
                         {/* Quick Actions */}
                         <div className="bg-gray-900 rounded-xl p-6 border border-gray-800">
-                            <h2 className="text-2xl font-display font-bold text-white mb-4">Quick Actions</h2>
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <h2 className="text-2xl font-display font-bold text-white mb-6">Content Management</h2>
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                                 <Link
                                     href="/admin/gallery/photos"
-                                    className="bg-gray-800 hover:bg-gray-700 rounded-lg p-4 text-center transition-all duration-200"
+                                    className="bg-gray-800 hover:bg-gray-700 rounded-xl p-6 text-center transition-all duration-200 border border-transparent hover:border-benfica-red"
                                 >
-                                    <ImageIcon className="w-8 h-8 text-benfica-gold mx-auto mb-2" />
+                                    <ImageIcon className="w-8 h-8 text-benfica-gold mx-auto mb-3" />
                                     <div className="text-white font-semibold">Manage Photos</div>
                                 </Link>
                                 <Link
                                     href="/admin/gallery/videos"
-                                    className="bg-gray-800 hover:bg-gray-700 rounded-lg p-4 text-center transition-all duration-200"
+                                    className="bg-gray-800 hover:bg-gray-700 rounded-xl p-6 text-center transition-all duration-200 border border-transparent hover:border-benfica-red"
                                 >
-                                    <Video className="w-8 h-8 text-benfica-gold mx-auto mb-2" />
+                                    <Video className="w-8 h-8 text-benfica-gold mx-auto mb-3" />
                                     <div className="text-white font-semibold">Manage Videos</div>
                                 </Link>
                                 <Link
-                                    href="/admin/contacts"
-                                    className="bg-gray-800 hover:bg-gray-700 rounded-lg p-4 text-center transition-all duration-200"
+                                    href="/admin/player-info"
+                                    className="bg-gray-800 hover:bg-gray-700 rounded-xl p-6 text-center transition-all duration-200 border border-transparent hover:border-benfica-red"
                                 >
-                                    <Mail className="w-8 h-8 text-benfica-gold mx-auto mb-2" />
-                                    <div className="text-white font-semibold">View Contacts</div>
+                                    <Users className="w-8 h-8 text-benfica-gold mx-auto mb-3" />
+                                    <div className="text-white font-semibold">Player Profile</div>
+                                </Link>
+                                <Link
+                                    href="/admin/contacts"
+                                    className="bg-gray-800 hover:bg-gray-700 rounded-xl p-6 text-center transition-all duration-200 border border-transparent hover:border-benfica-red"
+                                >
+                                    <Mail className="w-8 h-8 text-benfica-gold mx-auto mb-3" />
+                                    <div className="text-white font-semibold">Inbound Leads</div>
                                 </Link>
                             </div>
-                        </div>
-
-                        {/* Info Box */}
-                        <div className="mt-8 bg-benfica-red/10 border border-benfica-red/20 rounded-xl p-6">
-                            <h3 className="text-lg font-semibold text-benfica-red mb-2">Admin Panel Info</h3>
-                            <p className="text-gray-300 text-sm">
-                                This is a demo admin panel. In production, integrate with Supabase for full database management,
-                                authentication with Supabase Auth, and RLS policies for security.
-                            </p>
                         </div>
                     </div>
                 </main>

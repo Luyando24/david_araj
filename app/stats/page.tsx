@@ -4,8 +4,19 @@ import StatCard from '@/components/ui/StatCard';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import { TECHNICAL_STATS, PHYSICAL_STATS } from '@/lib/constants';
 import { Activity, Zap, TrendingUp } from 'lucide-react';
+import { getPlayerStats } from '@/lib/supabase';
 
-export default function StatsPage() {
+export default async function StatsPage() {
+    const stats = await getPlayerStats();
+
+    const technicalStats = stats.length > 0 
+        ? stats.filter((s: any) => s.category === 'technical' || s.category === 'cognitive') 
+        : TECHNICAL_STATS;
+        
+    const physicalStats = stats.length > 0 
+        ? stats.filter((s: any) => s.category === 'physical') 
+        : PHYSICAL_STATS;
+
     return (
         <>
             <Header />
@@ -37,7 +48,7 @@ export default function StatsPage() {
                         </div>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto animate-slide-up">
-                            {TECHNICAL_STATS.map((stat, index) => (
+                            {technicalStats.map((stat, index) => (
                                 <StatCard
                                     key={index}
                                     label={stat.label}
@@ -58,7 +69,7 @@ export default function StatsPage() {
                         </div>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto animate-slide-up">
-                            {PHYSICAL_STATS.map((stat, index) => (
+                            {physicalStats.map((stat, index) => (
                                 <StatCard
                                     key={index}
                                     label={stat.label}

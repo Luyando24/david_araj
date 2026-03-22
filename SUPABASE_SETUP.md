@@ -1,80 +1,39 @@
-# Supabase Setup Guide
+# Supabase Production Setup Guide
 
-## Quick Setup
+Follow these steps to configure your Supabase project for the David Araj Portfolio CMS.
 
-### 1. Create Supabase Project
-1. Go to [supabase.com](https://supabase.com)
-2. Create a new project
-3. Note your project URL and anon key
+## 1. Database Schema
+Run the SQL from [lib/db/schema.sql](file:///c:/Users/User/Desktop/david/lib/db/schema.sql) in your Supabase **SQL Editor**. 
+**Note**: This script is idempotent and safe to run multiple times; it will not overwrite your existing data but will ensure all tables and policies are correctly configured.
 
-### 2. Create Database Tables
+## 2. Storage Setup (Images)
+To enable local image uploads:
+1. Go to **Storage** in your Supabase Dashboard.
+2. Create a new bucket named **`gallery`**.
+3. Set the bucket to **Public**.
 
-Run this SQL in Supabase SQL Editor:
+## 3. Email Authentication (Multi-Admin)
+The CMS now uses **Supabase Auth** for individual admin accounts.
+1. Go to **Authentication** -> **Configuration**.
+2. Ensure **Email** is enabled as an auth provider.
+3. Your first admin account can be added directly via the **Admins** section of your new CMS!
 
-```sql
--- Contact Submissions Table
-CREATE TABLE contact_submissions (
-  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
-  name TEXT NOT NULL,
-  email TEXT NOT NULL,
-  phone TEXT,
-  message TEXT NOT NULL,
-  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
-);
+## 4. Environment Variables
+Ensure your `.env.local` has the following (especially the Service Role key for administrative actions):
 
--- Enable RLS
-ALTER TABLE contact_submissions ENABLE ROW LEVEL SECURITY;
-
--- Allow public insert (for contact form)
-CREATE POLICY "Allow public insert" ON contact_submissions
-  FOR INSERT TO anon
-  WITH CHECK (true);
-
--- Allow authenticated read (for admin)
-CREATE POLICY "Allow admin read" ON contact_submissions
-  FOR SELECT TO authenticated
-  USING (true);
-
--- Allow authenticated delete (for admin)
-CREATE POLICY "Allow admin delete" ON contact_submissions
-  FOR DELETE TO authenticated
-  USING (true);
-```
-
-### 3. Configure Environment Variables
-
-Create `.env.local` in project root:
-
-```bash
-NEXT_PUBLIC_SUPABASE_URL=your_project_url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
-NEXT_PUBLIC_ADMIN_PASSWORD=your_secure_password
+```env
+NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
 ```
 
-### 4. Test Contact Form
+> [!WARNING]
+> **Security**: Never share your `SUPABASE_SERVICE_ROLE_KEY`. It bypasses all RLS policies and is only used server-side for administrative tasks.
 
-1. Visit http://localhost:3000/contact
-2. Fill out and submit the form
-3. Check Supabase dashboard → Table Editor → contact_submissions
-4. Login to admin at http://localhost:3000/admin/login
-5. View submissions at http://localhost:3000/admin/contacts
+---
 
-## Admin Access
-
-- **Login URL**: http://localhost:3000/admin/login
-- **Default Password**: Set in NEXT_PUBLIC_ADMIN_PASSWORD
-- **Dashboard**: http://localhost:3000/admin/dashboard
-
-## Security Notes
-
-> **IMPORTANT**: The current admin authentication is demo-only using session storage.
-> For production, implement proper Supabase Auth with email/password or OAuth.
-
-### Production Checklist
-- [ ] Set strong ADMIN_PASSWORD in .env.local
-- [ ] Never commit .env.local to git
-- [ ] Implement Supabase Auth for admin users
-- [ ] Set up proper RLS policies
-- [ ] Enable 2FA for Supabase project
-- [ ] Use environment variables in Vercel deployment
+## Ready to Go!
+1. Start your server: `npm run dev`
+2. Visit `/admin/admins` to create your first secure account.
+3. Visit `/admin/login` to log in with your new credentials.

@@ -1,18 +1,36 @@
-'use client';
-
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import Breadcrumb from '@/components/ui/Breadcrumb';
-import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, Loader2 } from 'lucide-react';
 import { GALLERY_PHOTOS } from '@/lib/gallery-data';
+import { getPhotos } from '@/lib/supabase';
 
 type Category = 'all' | 'action' | 'training' | 'benfica' | 'lifestyle' | 'youth';
 
 export default function PhotoGalleryPage() {
     const [selectedCategory, setSelectedCategory] = useState<Category>('all');
     const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+    const [photos, setPhotos] = useState<any[]>(GALLERY_PHOTOS);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        async function fetchPhotos() {
+            try {
+                const data = await getPhotos();
+                if (data && data.length > 0) {
+                    setPhotos(data);
+                }
+            } catch (error) {
+                console.error('Error fetching photos:', error);
+            } finally {
+                setLoading(false);
+            }
+        }
+        fetchPhotos();
+    }, []);
+
 
     const categories = [
         { id: 'all' as Category, label: 'All Photos' },
@@ -24,8 +42,8 @@ export default function PhotoGalleryPage() {
     ];
 
     const filteredPhotos = selectedCategory === 'all'
-        ? GALLERY_PHOTOS
-        : GALLERY_PHOTOS.filter(photo => photo.category === selectedCategory);
+        ? photos
+        : photos.filter(photo => photo.category === selectedCategory);
 
     const openLightbox = (index: number) => setLightboxIndex(index);
     const closeLightbox = () => setLightboxIndex(null);

@@ -65,6 +65,36 @@ export async function getTestimonials() {
     return data;
 }
 
+// Helper function to get player info
+export async function getPlayerDetails() {
+    const { data, error } = await supabase
+        .from('player_details')
+        .select('*')
+        .single();
+
+    if (error && error.code !== 'PGRST116') {
+        console.error('Error fetching player details:', error);
+        return null;
+    }
+
+    return data;
+}
+
+// Helper function to get career highlights
+export async function getCareerHighlights() {
+    const { data, error } = await supabase
+        .from('career_highlights')
+        .select('*')
+        .order('display_order', { ascending: true });
+
+    if (error) {
+        console.error('Error fetching highlights:', error);
+        return [];
+    }
+
+    return data;
+}
+
 // Helper function to submit contact form
 export async function submitContact(formData: {
     name: string;

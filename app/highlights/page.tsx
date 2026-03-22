@@ -3,8 +3,12 @@ import Footer from '@/components/layout/Footer';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import { CAREER_HIGHLIGHTS } from '@/lib/constants';
 import { Calendar, Award, Star } from 'lucide-react';
+import { getCareerHighlights } from '@/lib/supabase';
 
-export default function HighlightsPage() {
+export default async function HighlightsPage() {
+    const highlights = await getCareerHighlights();
+    const careerHighlights = highlights.length > 0 ? highlights : CAREER_HIGHLIGHTS;
+
     return (
         <>
             <Header />
@@ -28,14 +32,14 @@ export default function HighlightsPage() {
 
                     {/* Timeline */}
                     <div className="max-w-5xl mx-auto space-y-12">
-                        {CAREER_HIGHLIGHTS.map((highlight, index) => (
+                        {careerHighlights.map((highlight: any, index: number) => (
                             <div
-                                key={highlight.id}
+                                key={highlight.id || index}
                                 className="relative animate-slide-up"
                                 style={{ animationDelay: `${index * 0.1}s` }}
                             >
                                 {/* Timeline Line */}
-                                {index !== CAREER_HIGHLIGHTS.length - 1 && (
+                                {index !== careerHighlights.length - 1 && (
                                     <div className="absolute left-8 top-20 bottom-0 w-1 bg-gradient-to-b from-benfica-red to-transparent hidden md:block"></div>
                                 )}
 
@@ -65,7 +69,7 @@ export default function HighlightsPage() {
                                             </p>
 
                                             <div className="space-y-3">
-                                                {highlight.details.map((detail, idx) => (
+                                                {highlight.details?.map((detail: string, idx: number) => (
                                                     <div key={idx} className="flex items-start space-x-3">
                                                         <Star className="w-5 h-5 text-benfica-gold flex-shrink-0 mt-1" />
                                                         <span className="text-gray-400">{detail}</span>

@@ -4,8 +4,12 @@ import TestimonialBlock from '@/components/ui/TestimonialBlock';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import { TESTIMONIAL } from '@/lib/constants';
 import { Quote, Award } from 'lucide-react';
+import { getTestimonials } from '@/lib/supabase';
 
-export default function TestimonialsPage() {
+export default async function TestimonialsPage() {
+    const testimonials = await getTestimonials();
+    const testimonial = testimonials.length > 0 ? testimonials[0] : TESTIMONIAL;
+
     return (
         <>
             <Header />
@@ -38,9 +42,9 @@ export default function TestimonialsPage() {
                         </div>
 
                         <TestimonialBlock
-                            text={TESTIMONIAL.text}
-                            coach={TESTIMONIAL.coach}
-                            title={TESTIMONIAL.title}
+                            text={testimonial.text}
+                            coach={testimonial.coach}
+                            title={testimonial.title}
                         />
                     </div>
 

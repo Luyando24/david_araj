@@ -1,17 +1,35 @@
-'use client';
-
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import { GALLERY_VIDEOS } from '@/lib/gallery-data';
-import { Play } from 'lucide-react';
+import { Play, Loader2 } from 'lucide-react';
+import { getVideos } from '@/lib/supabase';
 
 type Category = 'all' | 'highlights' | 'training' | 'drills' | 'tactical' | 'goals';
 
 export default function VideoGalleryPage() {
     const [selectedCategory, setSelectedCategory] = useState<Category>('all');
     const [playingVideo, setPlayingVideo] = useState<number | null>(null);
+    const [videos, setVideos] = useState<any[]>(GALLERY_VIDEOS);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        async function fetchVideos() {
+            try {
+                const data = await getVideos();
+                if (data && data.length > 0) {
+                    setVideos(data);
+                }
+            } catch (error) {
+                console.error('Error fetching videos:', error);
+            } finally {
+                setLoading(false);
+            }
+        }
+        fetchVideos();
+    }, []);
+
 
     const categories = [
         { id: 'all' as Category, label: 'All Videos' },
@@ -23,8 +41,8 @@ export default function VideoGalleryPage() {
     ];
 
     const filteredVideos = selectedCategory === 'all'
-        ? GALLERY_VIDEOS
-        : GALLERY_VIDEOS.filter(video => video.category === selectedCategory);
+        ? videos
+        : videos.filter(video => video.category === selectedCategory);
 
     return (
         <>

@@ -5,8 +5,27 @@ import StatCard from '@/components/ui/StatCard';
 import { PLAYER_INFO, CAREER_HIGHLIGHTS, TECHNICAL_STATS } from '@/lib/constants';
 import { Trophy, Target, Zap } from 'lucide-react';
 import Link from 'next/link';
+import { getPlayerDetails, getCareerHighlights, getPlayerStats } from '@/lib/supabase';
 
-export default function Home() {
+export default async function Home() {
+    // Fetch data from Supabase
+    const [player, highlights, stats] = await Promise.all([
+        getPlayerDetails(),
+        getCareerHighlights(),
+        getPlayerStats()
+    ]);
+
+    // Use fetched data or fallback to constants
+    const playerInfo = player ? {
+        fullName: player.full_name,
+        position: player.position,
+        tagline: player.tagline,
+        age: player.age,
+    } : PLAYER_INFO;
+
+    const careerHighlights = highlights.length > 0 ? highlights : CAREER_HIGHLIGHTS;
+    const technicalStats = stats.length > 0 ? stats : TECHNICAL_STATS;
+
     return (
         <>
             <Header />
@@ -14,9 +33,9 @@ export default function Home() {
             <main>
                 {/* Hero Section */}
                 <Hero
-                    title="DAVID ARAJ"
-                    subtitle={PLAYER_INFO.position}
-                    tagline={PLAYER_INFO.tagline}
+                    title={playerInfo.fullName.toUpperCase()}
+                    subtitle={playerInfo.position}
+                    tagline={playerInfo.tagline}
                     backgroundImage="/images/newbg.jpg"
                 />
 
@@ -33,7 +52,7 @@ export default function Home() {
                         </div>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-                            {TECHNICAL_STATS.slice(0, 6).map((stat, index) => (
+                            {technicalStats.slice(0, 6).map((stat, index) => (
                                 <StatCard
                                     key={index}
                                     label={stat.label}
@@ -42,6 +61,7 @@ export default function Home() {
                                 />
                             ))}
                         </div>
+
 
                         <div className="text-center mt-12">
                             <Link
@@ -67,7 +87,7 @@ export default function Home() {
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                            {CAREER_HIGHLIGHTS.map((highlight) => (
+                            {careerHighlights.map((highlight: any) => (
                                 <div
                                     key={highlight.id}
                                     className="bg-gradient-to-br from-gray-800 to-black rounded-xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 group hover:scale-105"
@@ -81,7 +101,7 @@ export default function Home() {
                                     </h3>
                                     <p className="text-gray-300 mb-4">{highlight.description}</p>
                                     <ul className="space-y-2">
-                                        {highlight.details.slice(0, 2).map((detail, idx) => (
+                                        {highlight.details?.slice(0, 2).map((detail: string, idx: number) => (
                                             <li key={idx} className="text-gray-400 text-sm flex items-start">
                                                 <span className="text-benfica-red mr-2">▪</span>
                                                 {detail}
@@ -208,7 +228,7 @@ export default function Home() {
                                 <div className="group">
                                     <Trophy className="w-12 h-12 text-benfica-gold mx-auto mb-4 group-hover:scale-110 transition-transform" />
                                     <h3 className="text-3xl font-display font-bold text-white mb-2">
-                                        {PLAYER_INFO.age}
+                                        {playerInfo.age}
                                     </h3>
                                     <p className="text-gray-400">Years Old</p>
                                 </div>
